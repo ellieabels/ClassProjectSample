@@ -1,0 +1,59 @@
+.panel-row {
+    @include breakpoint(sm) {
+        display: flex;
+    }
+}
+
+.panel {
+    width: 100%;
+    height: calc(100vh / 3);
+    background-color: green;
+    border-bottom: 0px solid yellow;
+    position: relative;
+    @include breakpoint(sm) {
+        width: calc(100vw / 3);
+        height: 100vh;
+        border-bottom: 0px;
+        border-right: 0px solid yellow;
+    }
+    .panel-door {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        transition: all .5s;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.panel-menu {
+            background-image: url(../images/starbucks-drink.jpg);
+        }
+        &.panel-app {
+            background-image: url(../images/starbucks-app.jpg);
+        }
+        &.panel-store {
+            background-image: url(../images/starbucks-store.jpg);
+        }
+    }
+    h2 {
+        font-family: arial;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 15;
+        @include breakpoint(sm) {
+            z-index: 5;
+        }
+    }
+    &:hover {
+        .panel-door {
+            left: 90%;
+        }
+    }
+}
